@@ -15,9 +15,9 @@
 package http
 
 import (
-	cutils "github.com/open-falcon/falcon-plus/common/utils"
-	"github.com/open-falcon/falcon-plus/modules/transfer/proc"
-	"github.com/open-falcon/falcon-plus/modules/transfer/sender"
+	cutils "github.com/odidev/falcon-plus/common/utils"
+	"github.com/odidev/falcon-plus/modules/transfer/proc"
+	"github.com/odidev/falcon-plus/modules/transfer/sender"
 	"net/http"
 	"strconv"
 	"strings"

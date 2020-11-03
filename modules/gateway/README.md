@@ -7,7 +7,7 @@
 
 ### Build
 
-请参考[falcon-plus README](https://github.com/open-falcon/falcon-plus)
+请参考[falcon-plus README](https://github.com/odidev/falcon-plus)
 
 ### Deploy
 服务部署，包括配置修改、启动服务、检验服务、停止服务等。这之前，需要将安装包解压到服务的部署目录下。
@@ -18,14 +18,14 @@ mv cfg.example.json cfg.json
 vim cfg.json
 
 # start service
-./open-falcon start gateway
+./odidev start gateway
 
 # check, you should get 'ok'
-./open-falcon monitor gateway
+./odidev monitor gateway
 
 ...
 # stop service
-./open-falcon stop gateway
+./odidev stop gateway
 
 ```
 服务启动后，可以通过日志查看服务的运行状态，日志文件地址为./var/app.log。可以通过调试脚本./test/debug查看服务器的内部状态数据，如 运行 bash ./test/debug 可以得到服务器内部状态的统计信息。

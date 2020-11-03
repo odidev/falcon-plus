@@ -15,9 +15,9 @@ hbs要能够处理agent的上述请求，就需要与portal的数据库打交道
 
 ```bash
 # set $GOPATH and $GOROOT
-mkdir -p $GOPATH/src/github.com/open-falcon
-cd $GOPATH/src/github.com/open-falcon
-git clone https://github.com/open-falcon/hbs.git
+mkdir -p $GOPATH/src/github.com/odidev
+cd $GOPATH/src/github.com/odidev
+git clone https://github.com/odidev/hbs.git
 cd hbs
 go get ./...
 ./control build

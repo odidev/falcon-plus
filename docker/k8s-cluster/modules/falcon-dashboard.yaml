@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: open-falcon
+  namespace: odidev
   name: falcon-dashboard
   labels:
-    app: open-falcon
+    app: odidev
 spec:
   type: ClusterIP
   ports:
@@ -16,10 +16,10 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  namespace: open-falcon
+  namespace: odidev
   name: falcon-dashboard
   labels:
-    app: open-falcon
+    app: odidev
 spec:
   replicas: 1
   template:
@@ -30,7 +30,7 @@ spec:
       containers:
       - name: falcon-dashboard
         image: openfalcon/falcon-dashboard:v0.2.1
-        command: ["sh","-c","cd /open-falcon/dashboard &&  ./control startfg"]
+        command: ["sh","-c","cd /odidev/dashboard &&  ./control startfg"]
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8081

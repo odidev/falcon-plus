@@ -18,10 +18,10 @@ import (
 	"encoding/json"
 	log "github.com/sirupsen/logrus"
 
-	cmodel "github.com/open-falcon/falcon-plus/common/model"
-	"github.com/open-falcon/falcon-plus/modules/alarm/api"
-	"github.com/open-falcon/falcon-plus/modules/alarm/g"
-	"github.com/open-falcon/falcon-plus/modules/alarm/redi"
+	cmodel "github.com/odidev/falcon-plus/common/model"
+	"github.com/odidev/falcon-plus/modules/alarm/api"
+	"github.com/odidev/falcon-plus/modules/alarm/g"
+	"github.com/odidev/falcon-plus/modules/alarm/redi"
 )
 
 func consume(event *cmodel.Event, isHigh bool) {

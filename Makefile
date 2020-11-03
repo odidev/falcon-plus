@@ -1,5 +1,5 @@
 CMD = agent aggregator graph hbs judge nodata transfer gateway api alarm
-TARGET = open-falcon
+TARGET = odidev
 PACKAGES ?= $(shell go list ./... | grep -v /vendor/)
 GOFILES := $(shell find . -name "*.go" -type f -not -path "./vendor/*")
 GOFMT ?= gofmt "-s"
@@ -54,9 +54,9 @@ $(CMD):
 
 .PHONY: $(TARGET)
 $(TARGET): $(GOFILES)
-	go build -ldflags "-X main.BinaryName=Open-Falcon -X main.GitCommit=`git rev-parse --short HEAD` -X main.Version=$(VERSION)" -o open-falcon
+	go build -ldflags "-X main.BinaryName=Open-Falcon -X main.GitCommit=`git rev-parse --short HEAD` -X main.Version=$(VERSION)" -o odidev
 
-checkbin: bin/ config/ open-falcon
+checkbin: bin/ config/ odidev
 
 pack: checkbin
 	@if [ -e out ] ; then rm -rf out; fi
@@ -73,7 +73,7 @@ pack: checkbin
 	@mkdir out/graph/data
 	@bash ./config/confgen.sh
 	@cp $(TARGET) ./out/$(TARGET)
-	tar -C out -zcf open-falcon-v$(VERSION).tar.gz .
+	tar -C out -zcf odidev-v$(VERSION).tar.gz .
 	@rm -rf out
 
 pack4docker: checkbin
@@ -92,7 +92,7 @@ pack4docker: checkbin
 	@bash ./docker/confgen4docker.sh
 	@cp ./docker/ctrl.sh ./out/ && chmod +x ./out/ctrl.sh
 	@cp $(TARGET) ./out/$(TARGET)
-	tar -C out -zcf open-falcon-v$(VERSION).tar.gz .
+	tar -C out -zcf odidev-v$(VERSION).tar.gz .
 	@rm -rf out
 
 .PHONY: test
@@ -103,6 +103,6 @@ clean:
 	@rm -rf ./bin
 	@rm -rf ./out
 	@rm -rf ./$(TARGET)
-	@rm -rf open-falcon-v$(VERSION).tar.gz
+	@rm -rf odidev-v$(VERSION).tar.gz
 
 .PHONY: clean all agent aggregator graph hbs judge nodata transfer gateway api alarm

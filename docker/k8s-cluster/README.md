@@ -1,11 +1,11 @@
-## 分布式部署 open-falcon 到 k8s 集群
+## 分布式部署 odidev 到 k8s 集群
 
 ### 构建
 
 克隆源码：
 
 ```shell
-git clone https://github.com/open-falcon/falcon-plus.git && cd falcon-plus 
+git clone https://github.com/odidev/falcon-plus.git && cd falcon-plus 
 ```
 
 编译源码并构建 Docker 镜像

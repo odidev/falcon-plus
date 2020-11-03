@@ -16,7 +16,7 @@ package g
 
 import (
 	"fmt"
-	cmodel "github.com/open-falcon/falcon-plus/common/model"
+	cmodel "github.com/odidev/falcon-plus/common/model"
 )
 
 func Link(event *cmodel.Event) string {

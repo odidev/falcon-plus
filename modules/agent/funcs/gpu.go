@@ -18,8 +18,8 @@ import (
 	"log"
 
 	"github.com/mindprince/gonvml"
-	"github.com/open-falcon/falcon-plus/common/model"
-	"github.com/open-falcon/falcon-plus/modules/agent/g"
+	"github.com/odidev/falcon-plus/common/model"
+	"github.com/odidev/falcon-plus/modules/agent/g"
 )
 
 // 需要load libnvidia-ml.so.1库

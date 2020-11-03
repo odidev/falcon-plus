@@ -1,14 +1,14 @@
 GoPerfcounter
 ==========
 
-goperfcounter用于golang应用的业务监控。goperfcounter需要和开源监控系统[Open-Falcon](http://book.open-falcon.com/zh/index.html)一起使用。
+goperfcounter用于golang应用的业务监控。goperfcounter需要和开源监控系统[Open-Falcon](http://book.odidev.com/zh/index.html)一起使用。
 
 概述
 -----
 使用goperfcounter进行golang应用的监控，大体如下: 
 
 1. 用户在其golang应用代码中，调用goperfcounter提供的统计函数；统计函数被调用时，perfcounter会生成统计记录、并保存在内存中
-2. goperfcounter会自动的、定期的将这些统计记录push给Open-Falcon的收集器([agent](https://github.com/open-falcon/agent)或[transfer](https://github.com/open-falcon/transfer))
+2. goperfcounter会自动的、定期的将这些统计记录push给Open-Falcon的收集器([agent](https://github.com/odidev/agent)或[transfer](https://github.com/open-falcon/transfer))
 3. 用户在Open-Falcon中，查看统计数据的绘图曲线、设置实时报警
 
 另外，goperfcounter提供了golang应用的基础监控，包括runtime指标、debug指标等。默认情况下，基础监控是关闭的，用户可以通过[配置文件](#配置)来开启此功能。

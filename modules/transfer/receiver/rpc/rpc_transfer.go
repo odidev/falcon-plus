@@ -19,11 +19,11 @@ import (
 	"strconv"
 	"time"
 
-	cmodel "github.com/open-falcon/falcon-plus/common/model"
-	cutils "github.com/open-falcon/falcon-plus/common/utils"
-	"github.com/open-falcon/falcon-plus/modules/transfer/g"
-	"github.com/open-falcon/falcon-plus/modules/transfer/proc"
-	"github.com/open-falcon/falcon-plus/modules/transfer/sender"
+	cmodel "github.com/odidev/falcon-plus/common/model"
+	cutils "github.com/odidev/falcon-plus/common/utils"
+	"github.com/odidev/falcon-plus/modules/transfer/g"
+	"github.com/odidev/falcon-plus/modules/transfer/proc"
+	"github.com/odidev/falcon-plus/modules/transfer/sender"
 )
 
 type Transfer int

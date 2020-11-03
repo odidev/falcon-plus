@@ -14,19 +14,19 @@ data:
         "plugin": {
             "enabled": false,
             "dir": "./plugin",
-            "git": "https://github.com/open-falcon/plugin.git",
+            "git": "https://github.com/odidev/plugin.git",
             "logs": "./logs"
         },
         "heartbeat": {
             "enabled": true,
-            "addr": "open-falcon:6030",
+            "addr": "odidev:6030",
             "interval": 60,
             "timeout": 1000
         },
         "transfer": {
             "enabled": true,
             "addrs": [
-                "open-falcon:8433"
+                "odidev:8433"
             ],
             "interval": 60,
             "timeout": 1000
@@ -64,7 +64,7 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: open-falcon
+  name: odidev
   labels:
     app: monitor
 spec:
@@ -75,12 +75,12 @@ spec:
     - name: web
       port: 8080
   selector:
-    name: open-falcon
+    name: odidev
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: open-falcon
+  name: odidev
   labels:
     app: monitor
 spec:
@@ -88,12 +88,12 @@ spec:
   template:
     metadata:
       labels:
-        name: open-falcon
+        name: odidev
     spec:
       containers:
-      - name: open-falcon
+      - name: odidev
         image: openfalcon/falcon-plus:v0.3
-        workingDir: /open-falcon
+        workingDir: /odidev
         command:
         - /bin/entrypoint.sh
         imagePullPolicy: IfNotPresent
@@ -106,14 +106,14 @@ spec:
         - name: REDIS_PORT
           value: redis:6379
         volumeMounts:
-        - name: open-falcon-data
-          mountPath: /open-falcon/data
+        - name: odidev-data
+          mountPath: /odidev/data
         - name: configmap-volume
           mountPath: /bin/entrypoint.sh
           readOnly: true
           subPath: entrypoint.sh
       volumes:
-      - name: open-falcon-data
+      - name: odidev-data
         emptyDir: {}
       - name: configmap-volume
         configMap:
@@ -151,7 +151,7 @@ spec:
       containers:
         - args:
             - '-c'
-            - /open-falcon/config/agent.json
+            - /odidev/config/agent.json
           command:
             - ./agent/bin/falcon-agent
           env:
@@ -165,7 +165,7 @@ spec:
                   apiVersion: v1
                   fieldPath: spec.nodeName
           image: 'openfalcon/falcon-plus:v0.3'
-          workingDir: /open-falcon
+          workingDir: /odidev
           imagePullPolicy: IfNotPresent
           name: falcon-agent
           resources:
@@ -181,7 +181,7 @@ spec:
             - mountPath: /rootfs
               name: rootfs
               readOnly: true
-            - mountPath: /open-falcon/config
+            - mountPath: /odidev/config
               name: configmap-volume
               readOnly: true
       dnsPolicy: ClusterFirst

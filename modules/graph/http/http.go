@@ -24,8 +24,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/open-falcon/falcon-plus/modules/graph/g"
-	"github.com/open-falcon/falcon-plus/modules/graph/rrdtool"
+	"github.com/odidev/falcon-plus/modules/graph/g"
+	"github.com/odidev/falcon-plus/modules/graph/rrdtool"
 )
 
 type Dto struct {
@@ -108,7 +108,7 @@ func Start() {
 		c.JSON(200, counter)
 	})
 
-	//compatible with open-falcon v0.1
+	//compatible with odidev v0.1
 	router.GET("/counter/migrate", func(c *gin.Context) {
 		cnt := rrdtool.GetCounter()
 		log.Debug("migrating counter:", cnt)

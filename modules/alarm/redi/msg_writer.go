@@ -19,8 +19,8 @@ import (
 	log "github.com/sirupsen/logrus"
 	"strings"
 
-	"github.com/open-falcon/falcon-plus/modules/alarm/g"
-	"github.com/open-falcon/falcon-plus/modules/alarm/model"
+	"github.com/odidev/falcon-plus/modules/alarm/g"
+	"github.com/odidev/falcon-plus/modules/alarm/model"
 )
 
 func lpush(queue, message string) {

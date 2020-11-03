@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/open-falcon/falcon-plus/common/model"
+	"github.com/odidev/falcon-plus/common/model"
 	"github.com/toolkits/slice"
 )
 

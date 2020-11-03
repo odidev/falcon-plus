@@ -15,8 +15,8 @@
 package falcon_portal
 
 import (
-	"github.com/open-falcon/falcon-plus/modules/api/app/model/uic"
-	con "github.com/open-falcon/falcon-plus/modules/api/config"
+	"github.com/odidev/falcon-plus/modules/api/app/model/uic"
+	con "github.com/odidev/falcon-plus/modules/api/config"
 	log "github.com/sirupsen/logrus"
 )
 

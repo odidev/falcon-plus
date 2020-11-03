@@ -20,8 +20,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/open-falcon/falcon-plus/common/model"
-	"github.com/open-falcon/falcon-plus/modules/judge/g"
+	"github.com/odidev/falcon-plus/common/model"
+	"github.com/odidev/falcon-plus/modules/judge/g"
 )
 
 func SyncStrategies() {

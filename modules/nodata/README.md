@@ -35,21 +35,21 @@ nodata所谓的异常，限定为 用户数据采集服务异常、falcon数据�
 
 ## 系统设计
 #### 系统流图
-![nodata.flow](https://raw.githubusercontent.com/niean/niean.common.store/master/images/open-falcon/nodata/nodata.flow.png)
+![nodata.flow](https://raw.githubusercontent.com/niean/niean.common.store/master/images/odidev/nodata/nodata.flow.png)
 
 #### 模块结构
-![nodata.module](https://raw.githubusercontent.com/niean/niean.common.store/master/images/open-falcon/nodata/nodata.module.png)
+![nodata.module](https://raw.githubusercontent.com/niean/niean.common.store/master/images/odidev/nodata/nodata.module.png)
 
 #### 部署架构
-![nodata.deploy](https://raw.githubusercontent.com/niean/niean.common.store/master/images/open-falcon/nodata/nodata.deploy.png)
+![nodata.deploy](https://raw.githubusercontent.com/niean/niean.common.store/master/images/odidev/nodata/nodata.deploy.png)
 
 ## 系统安装
 
 #### 准备工作
 nodata服务正常运行，依赖如下准备工作:
 
-+ 确保已经建立mysql数据表falcon_portal.mockcfg。其中，[falcon_portal](https://github.com/open-falcon/scripts/blob/master/db_schema/portal-db-schema.sql)为portal组件的mysql数据库，mockcfg为存放nodata配置的数据表。mockcfg的建表语句，见[这里](https://github.com/nieanan/nodata/blob/master/scripts/nodata-db-schema.sql)。
-+ 确保[portal组件](https://github.com/open-falcon/portal)已经更新。portal组件中，新增了对nodata配置的UI支持。
++ 确保已经建立mysql数据表falcon_portal.mockcfg。其中，[falcon_portal](https://github.com/odidev/scripts/blob/master/db_schema/portal-db-schema.sql)为portal组件的mysql数据库，mockcfg为存放nodata配置的数据表。mockcfg的建表语句，见[这里](https://github.com/nieanan/nodata/blob/master/scripts/nodata-db-schema.sql)。
++ 确保[portal组件](https://github.com/odidev/portal)已经更新。portal组件中，新增了对nodata配置的UI支持。
 + 确保query组件版本不低于```1.4.3```。
 + 确保graph组件版本不低于```0.5.5```。
 
@@ -57,11 +57,11 @@ nodata服务正常运行，依赖如下准备工作:
 
 ```bash
 # update common lib
-cd $GOPATH/src/github.com/open-falcon/common
+cd $GOPATH/src/github.com/odidev/common
 git pull
 
 # compile nodata
-cd $GOPATH/src/github.com/open-falcon/nodata
+cd $GOPATH/src/github.com/odidev/nodata
 go get ./...
 ./control build
 ./control pack
@@ -142,7 +142,7 @@ nodata采用"阈值检测"方法，简答的解决上述误报问题。nodata服
 
 我们举一个例子来进行说明。假设，我们配置的阻塞阈值为20，系统当前有1000个监控指标项配置了nodata报警。某一段时间，由于IDC核心网络故障，导致300个监控指标无法顺利push到falcon。nodata服务检测到，监控项异常百分比为`(300/1000)*100 = 30%`，这个取值大于我们预先设置的阈值`20%`，因此nodata服务停止发送mock数据、直到异常百分比再次降低至不大于`20%`。
 
-阻塞阈值，可以通过nodata配置文件选项`sender.block.threshold`来设置，用户可以手动更改配置文件来更新这个阻塞阈值。nodata可以通过Gauss过滤、动态拟合出这个阻塞阈值，这种方式适合于数据上报较稳定的场合，详情可咨询[Open-Falcon开发者团队](http://open-falcon.com/)。
+阻塞阈值，可以通过nodata配置文件选项`sender.block.threshold`来设置，用户可以手动更改配置文件来更新这个阻塞阈值。nodata可以通过Gauss过滤、动态拟合出这个阻塞阈值，这种方式适合于数据上报较稳定的场合，详情可咨询[Open-Falcon开发者团队](http://odidev.com/)。
 
 处于阻塞期间，所有的数据上报异常将会被忽略，有可能错过一些真实的异常、导致漏报。误报和漏报之间的权衡，需要用户酌情选择**是否开启阻塞功能**、**如何设置阻塞阈值**。
 
@@ -154,14 +154,14 @@ nodata采用"阈值检测"方法，简答的解决上述误报问题。nodata服
 
 #### Nodata配置
 进入Nodata配置主页，点击右上角的添加按钮，添加nodata配置。
-![nodata.config](https://raw.githubusercontent.com/niean/niean.common.store/master/images/open-falcon/nodata/nodata.config.open.png)
+![nodata.config](https://raw.githubusercontent.com/niean/niean.common.store/master/images/odidev/nodata/nodata.config.open.png)
 
 进行完上述配置后，分组`cop.xiaomi_owt.inf_pdl.falcon_service.task`下的所有机器，其采集项 `agent.alive`上报中断后，nodata服务就会补发一个取值为 `-1.0`、agent.alive的监控数据给监控系统。
 
 #### 策略配置
 配置了Nodata后，如果有数据上报中断的情况，Nodata配置中的默认值就会被上报。我们可以针对这个默认值，设置报警；只要收到了默认值，就认为发生了数据上报的中断（如果你设置的默认值，可能与正常上报的数据相等，那么请修改你的Nodata配置、使默认值有别于正常值）。将此策略，绑定到分组`cop.xiaomi_owt.inf_pdl.falcon_service.task`即可。
 
-![nodata.judge](https://raw.githubusercontent.com/niean/niean.common.store/master/images/open-falcon/nodata/ndoata.strategy.png)
+![nodata.judge](https://raw.githubusercontent.com/niean/niean.common.store/master/images/odidev/nodata/ndoata.strategy.png)
 
 #### 注意事项
 1. 配置名称name，要全局唯一。这是为了方便Nodata配置的管理。

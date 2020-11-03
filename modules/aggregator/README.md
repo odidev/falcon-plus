@@ -5,9 +5,9 @@
 ## 源码编译
 
 ```bash
-cd $GOPATH/src/github.com/open-falcon
-git clone https://github.com/open-falcon/sdk.git
-git clone https://github.com/open-falcon/falcon-plus.git
+cd $GOPATH/src/github.com/odidev
+git clone https://github.com/odidev/sdk.git
+git clone https://github.com/odidev/falcon-plus.git
 cd falcon-plus/modules/aggregator
 go get 
 ./control build

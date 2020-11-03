@@ -1,4 +1,4 @@
-## Running open-falcon in kubernetes
+## Running odidev in kubernetes
 
 work on kubernetes 1.14 ,  the `kubectl version` like:
 ```
@@ -47,12 +47,12 @@ kubectl apply -f openfalcon-dashboard.yaml
 NAME                    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                         AGE
 kubernetes              ClusterIP   10.96.0.1       <none>        443/TCP                         105d
 mysql                   NodePort    10.110.20.201   <none>        3306:30535/TCP                  25m
-open-falcon             NodePort    10.97.12.125    <none>        8433:31952/TCP,8080:31957/TCP   53s
-open-falcon-dashboard   NodePort    10.96.119.231   <none>        8081:30191/TCP                  3s
+odidev             NodePort    10.97.12.125    <none>        8433:31952/TCP,8080:31957/TCP   53s
+odidev-dashboard   NodePort    10.96.119.231   <none>        8081:30191/TCP                  3s
 redis                   ClusterIP   10.98.212.126   <none>        6379/TCP                        32m
 ```
 
-get **open-falcon-dashboard** service localhost port **30191** , then can visit  `http://192.168.10.21:30191` in webrowser 。
+get **odidev-dashboard** service localhost port **30191** , then can visit  `http://192.168.10.21:30191` in webrowser 。
 
 
 [mailto](mailto:studyoo@foxmail.com)

@@ -5,5 +5,5 @@ out/
 *.tar.gz
 docs/_site
 .idea
-open-falcon
+odidev
 build

@@ -6,7 +6,7 @@ Open-Falcon is developed in the open. Here are some of the channels we use to co
 - [openfalcon-developers](https://groups.google.com/forum/#!forum/openfalcon-developers) – for discussions around openfalcon development
 
 **Issue tracker:** 
-- Use the GitHub issue tracker for the various [Open-Falcon repositories](http://github.com/open-falcon) to file bugs and features request. If you need support, please send your questions to the [openfalcon-users](https://groups.google.com/forum/#!forum/openfalcon-users) mailing list rather than filing a GitHub issue.
+- Use the GitHub issue tracker for the various [Open-Falcon repositories](http://github.com/odidev) to file bugs and features request. If you need support, please send your questions to the [openfalcon-users](https://groups.google.com/forum/#!forum/openfalcon-users) mailing list rather than filing a GitHub issue.
 
 *Please do not ask individual project members for support. Use the channels above instead, where the whole community can help you and benefit from the solutions provided. If community support is insufficient for your situation, please refer to the Commercial Support section below.*
 

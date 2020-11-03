@@ -19,9 +19,9 @@ import (
 	"time"
 
 	"github.com/garyburd/redigo/redis"
-	cmodel "github.com/open-falcon/falcon-plus/common/model"
-	"github.com/open-falcon/falcon-plus/modules/alarm/g"
-	eventmodel "github.com/open-falcon/falcon-plus/modules/alarm/model/event"
+	cmodel "github.com/odidev/falcon-plus/common/model"
+	"github.com/odidev/falcon-plus/modules/alarm/g"
+	eventmodel "github.com/odidev/falcon-plus/modules/alarm/model/event"
 	log "github.com/sirupsen/logrus"
 )
 

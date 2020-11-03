@@ -22,10 +22,10 @@ import (
 
 	"github.com/juju/errors"
 	pfc "github.com/niean/goperfcounter"
-	cmodel "github.com/open-falcon/falcon-plus/common/model"
-	cutils "github.com/open-falcon/falcon-plus/common/utils"
-	"github.com/open-falcon/falcon-plus/modules/transfer/g"
-	"github.com/open-falcon/falcon-plus/modules/transfer/proc"
+	cmodel "github.com/odidev/falcon-plus/common/model"
+	cutils "github.com/odidev/falcon-plus/common/utils"
+	"github.com/odidev/falcon-plus/modules/transfer/g"
+	"github.com/odidev/falcon-plus/modules/transfer/proc"
 	nsema "github.com/toolkits/concurrent/semaphore"
 	"github.com/toolkits/container/list"
 )

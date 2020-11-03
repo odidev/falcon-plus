@@ -308,7 +308,7 @@
 		},
 		{
 			"checksumSHA1": "I0kIkGOtYBit3XflqEqbEt+kuhQ=",
-			"path": "github.com/open-falcon/rrdlite",
+			"path": "github.com/odidev/rrdlite",
 			"revision": "7d8646c85cc56cad1f65d97abbe24fdfc1b88917",
 			"revisionTime": "2017-04-12T12:20:36Z"
 		},
@@ -597,5 +597,5 @@
 			"revisionTime": "2017-04-07T17:21:22Z"
 		}
 	],
-	"rootPath": "github.com/open-falcon/falcon-plus"
+	"rootPath": "github.com/odidev/falcon-plus"
 }

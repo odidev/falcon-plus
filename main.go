@@ -18,14 +18,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/open-falcon/falcon-plus/cmd"
+	"github.com/odidev/falcon-plus/cmd"
 	"github.com/spf13/cobra"
 )
 
 var versionFlag bool
 
 var RootCmd = &cobra.Command{
-	Use: "open-falcon",
+	Use: "odidev",
 	RunE: func(c *cobra.Command, args []string) error {
 		if versionFlag {
 			fmt.Printf("%s version %s, build %s\n", BinaryName, Version, GitCommit)

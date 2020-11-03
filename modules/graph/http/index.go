@@ -16,8 +16,8 @@ package http
 
 import (
 	"github.com/gin-gonic/gin"
-	cutils "github.com/open-falcon/falcon-plus/common/utils"
-	"github.com/open-falcon/falcon-plus/modules/graph/index"
+	cutils "github.com/odidev/falcon-plus/common/utils"
+	"github.com/odidev/falcon-plus/modules/graph/index"
 	log "github.com/sirupsen/logrus"
 )
 
