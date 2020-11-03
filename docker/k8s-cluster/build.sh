@@ -24,12 +24,21 @@ clean() {
 
 build() {
     echo "build source..."
-    docker run -it --rm \
+    if [ `uname -m` == "aarch64"]; then 
+	    docker run -it --rm \
         --name build \
         -v "$(pwd)":"/go/src/github.com/open-falcon/falcon-plus" \
         -w "/go/src/github.com/open-falcon/falcon-plus" \
-        openfalcon/makegcc-golang:1.10-alpine \
+        jimmytinsley/makegcc-golang \
         docker/k8s-cluster/init.sh
+   else
+	   docker run -it --rm \
+		   --name build \
+       		   -v "$(pwd)":"/go/src/github.com/open-falcon/falcon-plus" \
+        	   -w "/go/src/github.com/open-falcon/falcon-plus" \
+		   openfalcon/makegcc-golang:1.10-alpine \
+		   docker/k8s-cluster/init.sh
+   fi
 }
 
 buildDockerImages() {
